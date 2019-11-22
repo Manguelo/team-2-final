@@ -24,4 +24,25 @@ Public Class CRoles
     Public Function Save() As Integer
         Return _Role.Save()
     End Function
+    Public Function GetAllRoles() As SqlDataReader
+        Dim objDR As SqlDataReader
+        objDR = myDB.GetDataReaderBySP("sp_getAllRoles", Nothing)
+        Return objDR
+    End Function
+    Public Function GetRoleByRoleID(strID As String) As CRole
+        Dim params As New ArrayList
+        params.Add(New SqlParameter("roleID", strID))
+        FillObject(myDB.GetDataReaderBySP("sp_getRoleByRoleID", params))
+        Return _Role
+    End Function
+    Public Function FillObject(objDR As SqlDataReader) As CRole
+        If objDR.Read Then
+            With _Role
+                .RoleID = objDR("RoleID")
+                .RoleDescription = objDR.Item("RoleDescription")
+            End With
+        End If
+        objDR.Close()
+        Return _Role
+    End Function
 End Class

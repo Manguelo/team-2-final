@@ -1,4 +1,47 @@
 ﻿Public Class frmMain
+    Private RoleInfo As frmRole
+#Region "Toolbar Actions"
+    Private Sub tsbRole_Click(sender As Object, e As EventArgs) Handles tsbRole.Click
+        Me.Hide()
+        RoleInfo.ShowDialog()
+        Me.Show()
+        PerformNextAction()
+    End Sub
+    Private Sub tsbLogOut_Click(sender As Object, e As EventArgs) Handles tsbLogOut.Click
+        intNextAction = ACTION_LOGOUT
+        PerformNextAction()
+    End Sub
+#End Region
+    Private Sub PerformNextAction()
+        'get the next action selected on the child form, 
+        'then simulate the click on the toolbar button here
+        Select Case intNextAction
+            Case ACTION_COURSE
+                tsbCourse.PerformClick()
+            Case ACTION_EVENT
+                tsbEvent.PerformClick()
+            Case ACTION_HELP
+                tsbHelp.PerformClick()
+            Case ACTION_HOME
+               'nothing to do here
+            Case ACTION_LOGOUT
+                EndProgram()
+            Case ACTION_MEMBER
+                tsbMember.PerformClick()
+            Case ACTION_NONE
+                'nothing to do here
+            Case ACTION_ROLE
+                tsbRole.PerformClick()
+            Case ACTION_RSVP
+                tsbRSVP.PerformClick()
+            Case ACTION_SEMESTER
+                tsbSemester.PerformClick()
+            Case ACTION_TUTOR
+                tsbTutor.PerformClick()
+            Case Else
+                MessageBox.Show("Unexpected case value in PerformNextAction in frmMain", "Program", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Select
+    End Sub
     Private Sub tsbProxy_MouseEnter(sender As Object, e As EventArgs) Handles tsbCourse.MouseEnter, tsbEvent.MouseEnter, tsbHelp.MouseEnter, tsbHome.MouseEnter, tsbHome.MouseEnter, tsbLogOut.MouseEnter, tsbMember.MouseEnter, tsbRole.MouseEnter, tsbRSVP.MouseEnter, tsbSemester.MouseEnter, tsbTutor.MouseEnter
         'We need to do this only because we are not putting our images in the image property of the toolbra buttons
         Dim tsbProxy As ToolStripButton
@@ -13,6 +56,7 @@
     End Sub
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+        RoleInfo = New frmRole
         Try
             myDB.OpenDB()
         Catch ex As Exception
@@ -37,5 +81,6 @@
             objSQLConn.Dispose()
         End If
         Me.Cursor = Cursors.Default
+        Application.Exit()
     End Sub
 End Class
