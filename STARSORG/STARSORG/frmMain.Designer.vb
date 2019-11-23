@@ -38,12 +38,13 @@ Partial Class frmMain
         Me.tsbCourse = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbSemester = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbTutor = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbLogOut = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbHelp = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -63,7 +64,7 @@ Partial Class frmMain
         'ToolStrip1
         '
         Me.ToolStrip1.AutoSize = False
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator6, Me.tsbHome, Me.ToolStripSeparator7, Me.tsbMember, Me.ToolStripSeparator8, Me.tsbRole, Me.ToolStripSeparator5, Me.tsbEvent, Me.ToolStripSeparator3, Me.tsbRSVP, Me.ToolStripSeparator4, Me.tsbCourse, Me.ToolStripSeparator2, Me.tsbSemester, Me.tsbTutor, Me.ToolStripSeparator9, Me.tsbLogOut, Me.ToolStripSeparator1, Me.tsbHelp, Me.ToolStripSeparator11, Me.ToolStripSeparator10})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator6, Me.tsbHome, Me.ToolStripSeparator7, Me.tsbMember, Me.ToolStripSeparator8, Me.tsbRole, Me.ToolStripSeparator5, Me.tsbEvent, Me.ToolStripSeparator3, Me.tsbRSVP, Me.ToolStripSeparator4, Me.tsbCourse, Me.ToolStripSeparator2, Me.tsbSemester, Me.ToolStripSeparator11, Me.tsbTutor, Me.ToolStripSeparator9, Me.tsbLogOut, Me.ToolStripSeparator1, Me.tsbHelp, Me.ToolStripSeparator12, Me.ToolStripSeparator10})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(873, 50)
@@ -189,6 +190,12 @@ Partial Class frmMain
         Me.tsbSemester.Size = New System.Drawing.Size(48, 48)
         Me.tsbSemester.Text = "SEMESTER"
         '
+        'ToolStripSeparator11
+        '
+        Me.ToolStripSeparator11.AutoSize = False
+        Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
+        Me.ToolStripSeparator11.Size = New System.Drawing.Size(10, 50)
+        '
         'tsbTutor
         '
         Me.tsbTutor.AutoSize = False
@@ -238,11 +245,11 @@ Partial Class frmMain
         Me.tsbHelp.Size = New System.Drawing.Size(48, 48)
         Me.tsbHelp.Text = "HELP"
         '
-        'ToolStripSeparator11
+        'ToolStripSeparator12
         '
-        Me.ToolStripSeparator11.AutoSize = False
-        Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
-        Me.ToolStripSeparator11.Size = New System.Drawing.Size(10, 50)
+        Me.ToolStripSeparator12.AutoSize = False
+        Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
+        Me.ToolStripSeparator12.Size = New System.Drawing.Size(10, 50)
         '
         'ToolStripSeparator10
         '
@@ -282,7 +289,6 @@ Partial Class frmMain
     Friend WithEvents tsbCourse As ToolStripButton
     Friend WithEvents tsbSemester As ToolStripButton
     Friend WithEvents tsbHelp As ToolStripButton
-    Friend WithEvents tsbTutor As ToolStripButton
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
     Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
@@ -294,4 +300,6 @@ Partial Class frmMain
     Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
     Friend WithEvents ToolStripSeparator11 As ToolStripSeparator
     Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
+    Friend WithEvents tsbTutor As ToolStripButton
+    Friend WithEvents ToolStripSeparator12 As ToolStripSeparator
 End Class

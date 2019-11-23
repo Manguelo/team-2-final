@@ -20,12 +20,12 @@ Public Class CSecurities
         Clear()
         _Security.IsNewSecurity = True
     End Sub
-    'Public Function Save() As Integer
-    '    Return _Security.Save()
-    'End Function
-    Public Function CheckCredentials(usrId As String, pass As String) As CSecurity
+    Public Function Save() As Integer
+        Return _Security.Save()
+    End Function
+    Public Function CheckCredentials(PID As String, pass As String) As CSecurity
         Dim params As New ArrayList
-        params.Add(New SqlParameter("userID", usrId))
+        params.Add(New SqlParameter("PID", PID))
         params.Add(New SqlParameter("password", pass))
         FillObject(myDB.GetDataReaderBySP("sp_CheckCredentials", params))
         Return _Security

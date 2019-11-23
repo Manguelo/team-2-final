@@ -68,19 +68,9 @@ Public Class CSecurity
         End Get
     End Property
 #End Region
-    'Public Function Save() As Integer
-    '    'return -1 if the ID already exists (and we can not create a new record with duplicate ID)
-    '    If IsNewSecurity Then
-    '        Dim params As New ArrayList
-    '        params.Add(New SqlParameter("userID", _mstrUserID))
-    '        Dim strResult As String = myDB.GetSingleValueFromSP("sp_CheckUserIDExists", params)
-    '        If Not strResult = 0 Then
-    '            Return -1 'not UNIQUE!!!
-    '        End If
-    '    End If
-    '    'if not a new role, or it is new and has a unique ID, then do the save (update or insert)
-    '    Return myDB.ExecSP("sp_saveSecurity", GetSaveParameters())
-    'End Function
+    Public Function Save() As Integer
+        Return myDB.ExecSP("sp_saveSecurity", GetSaveParameters())
+    End Function
 
 
 
