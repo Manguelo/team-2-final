@@ -1,5 +1,6 @@
 ﻿Public Class frmMain
     Private RoleInfo As frmRole
+    Private Login As frmLogin
 #Region "Toolbar Actions"
     Private Sub tsbRole_Click(sender As Object, e As EventArgs) Handles tsbRole.Click
         Me.Hide()
@@ -11,7 +12,18 @@
         intNextAction = ACTION_LOGOUT
         PerformNextAction()
     End Sub
-#End Region
+    Private Sub tsbProxy_MouseEnter(sender As Object, e As EventArgs) Handles tsbCourse.MouseEnter, tsbEvent.MouseEnter, tsbHelp.MouseEnter, tsbHome.MouseEnter, tsbHome.MouseEnter, tsbLogOut.MouseEnter, tsbMember.MouseEnter, tsbRole.MouseEnter, tsbRSVP.MouseEnter, tsbSemester.MouseEnter, tsbTutor.MouseEnter
+        'We need to do this only because we are not putting our images in the image property of the toolbra buttons
+        Dim tsbProxy As ToolStripButton
+        tsbProxy = DirectCast(sender, ToolStripButton)
+        tsbProxy.DisplayStyle = ToolStripItemDisplayStyle.Text
+    End Sub
+    Private Sub tsbProxy_MouseLeave(sender As Object, e As EventArgs) Handles tsbCourse.MouseLeave, tsbEvent.MouseLeave, tsbHelp.MouseLeave, tsbHome.MouseLeave, tsbHome.MouseLeave, tsbLogOut.MouseLeave, tsbMember.MouseLeave, tsbRole.MouseLeave, tsbRSVP.MouseLeave, tsbSemester.MouseLeave, tsbTutor.MouseLeave
+        'We need to do this only because we are not putting our images in the image property of the toolbra buttons
+        Dim tsbProxy As ToolStripButton
+        tsbProxy = DirectCast(sender, ToolStripButton)
+        tsbProxy.DisplayStyle = ToolStripItemDisplayStyle.Image
+    End Sub
     Private Sub PerformNextAction()
         'get the next action selected on the child form, 
         'then simulate the click on the toolbar button here
@@ -42,18 +54,7 @@
                 MessageBox.Show("Unexpected case value in PerformNextAction in frmMain", "Program", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Select
     End Sub
-    Private Sub tsbProxy_MouseEnter(sender As Object, e As EventArgs) Handles tsbCourse.MouseEnter, tsbEvent.MouseEnter, tsbHelp.MouseEnter, tsbHome.MouseEnter, tsbHome.MouseEnter, tsbLogOut.MouseEnter, tsbMember.MouseEnter, tsbRole.MouseEnter, tsbRSVP.MouseEnter, tsbSemester.MouseEnter, tsbTutor.MouseEnter
-        'We need to do this only because we are not putting our images in the image property of the toolbra buttons
-        Dim tsbProxy As ToolStripButton
-        tsbProxy = DirectCast(sender, ToolStripButton)
-        tsbProxy.DisplayStyle = ToolStripItemDisplayStyle.Text
-    End Sub
-    Private Sub tsbProxy_MouseLeave(sender As Object, e As EventArgs) Handles tsbCourse.MouseLeave, tsbEvent.MouseLeave, tsbHelp.MouseLeave, tsbHome.MouseLeave, tsbHome.MouseLeave, tsbLogOut.MouseLeave, tsbMember.MouseLeave, tsbRole.MouseLeave, tsbRSVP.MouseLeave, tsbSemester.MouseLeave, tsbTutor.MouseLeave
-        'We need to do this only because we are not putting our images in the image property of the toolbra buttons
-        Dim tsbProxy As ToolStripButton
-        tsbProxy = DirectCast(sender, ToolStripButton)
-        tsbProxy.DisplayStyle = ToolStripItemDisplayStyle.Image
-    End Sub
+#End Region
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
         RoleInfo = New frmRole
@@ -63,6 +64,12 @@
             MessageBox.Show("Unable to open database. Connection string=" & gstrConn, "DB Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             EndProgram()
         End Try
+    End Sub
+    Private Sub frmMain_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        Login = New frmLogin
+        If currentUser Is Nothing Then
+            Login.ShowDialog()
+        End If
     End Sub
     Private Sub EndProgram()
         'Close each form except main

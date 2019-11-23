@@ -17,4 +17,5 @@
 #End Region
     Public intNextAction As Integer
     Public myDB As New CDB
+    Public currentUser As CSecurity
 End Module
