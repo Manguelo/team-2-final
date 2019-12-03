@@ -73,6 +73,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CAudit.vb" />
+    <Compile Include="CAudits.vb" />
     <Compile Include="CDB.vb" />
     <Compile Include="CRole.vb" />
     <Compile Include="CRoles.vb" />

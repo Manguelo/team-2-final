@@ -2,17 +2,22 @@
     Private strPantherId As String
     Private strPassword As String
     Private objSecurity As CSecurities
+    Private objAudits As CAudits
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         Dim blnErrors As Boolean
         If Not ValidateTextBoxLength(txtPantherId, errP) Then
             blnErrors = True
         End If
-        If Not ValidateTextBoxLength(txtPassword, errP) Then
-            blnErrors = True
+        ' If PID is not the guest PID validate password 
+        If txtPantherId.Text <> "0000001" Then
+            If Not ValidateTextBoxLength(txtPassword, errP) Then
+                blnErrors = True
+            End If
         End If
         If blnErrors Then
             Exit Sub
         End If
+
         strPantherId = txtPantherId.Text
         strPassword = txtPassword.Text
 
@@ -20,10 +25,23 @@
         result = objSecurity.CheckCredentials(strPantherId, strPassword)
         If result.PID = "" Then
             lblErr.Text = "Unable to sign in. Invalid Panther ID or Password"
+            With objAudits.CurrentObject
+                .PID = txtPantherId.Text
+                .Success = 0
+                .AccessTimeStamp = DateTime.Now
+            End With
+            objAudits.SaveAttempt()
             Exit Sub
         End If
         'Successful login!
         'Remove the user's password from memory and save their security status 
+        With objAudits.CurrentObject
+            .PID = result.PID
+            .Success = 1
+            .AccessTimeStamp = DateTime.Now
+        End With
+        objAudits.SaveAttempt()
+
         result.Password = ""
         currentSecurity = result
         Me.Close()
@@ -31,10 +49,23 @@
 
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles Me.Load
         objSecurity = New CSecurities
+        objAudits = New CAudits
     End Sub
 
-    Private Sub fields_TextChanged(sender As Object, e As EventArgs) Handles txtPantherId.TextChanged, txtPassword.TextChanged
+    Private Sub fields_TextChanged(sender As Object, e As EventArgs) Handles txtPantherId.TextChanged, txtPassword.TextChanged, txtPIDUpdate.TextChanged
         lblErr.Text = ""
+        If txtPantherId.Text = "0000001" Then
+            txtPassword.Enabled = False
+        Else
+            txtPassword.Enabled = True
+        End If
+
+        If txtPIDUpdate.Text = "0000001" Then
+            btnUpdatePass.Enabled = False
+        Else
+            btnUpdatePass.Enabled = True
+        End If
+        txtPassword.Refresh()
     End Sub
 
     Private Sub btnUpdatePass_Click(sender As Object, e As EventArgs) Handles btnUpdatePass.Click
@@ -78,8 +109,7 @@
         ClearScreenControls(Me)
         lblUpdateStatus.Text = "Password was successfully updated"
         lblUpdateStatus.ForeColor = Color.Green
-
-        currentSecurity = objSecurity.CurrentObject
+        objSecurity.Clear()
     End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click

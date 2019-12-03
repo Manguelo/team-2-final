@@ -80,6 +80,7 @@ Partial Class frmLogin
         'txtPantherId
         '
         Me.txtPantherId.Location = New System.Drawing.Point(73, 136)
+        Me.txtPantherId.MaxLength = 7
         Me.txtPantherId.Name = "txtPantherId"
         Me.txtPantherId.Size = New System.Drawing.Size(220, 20)
         Me.txtPantherId.TabIndex = 0
@@ -87,6 +88,7 @@ Partial Class frmLogin
         'txtPassword
         '
         Me.txtPassword.Location = New System.Drawing.Point(73, 182)
+        Me.txtPassword.MaxLength = 8
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(220, 20)
@@ -160,7 +162,9 @@ Partial Class frmLogin
         'txtNewPass
         '
         Me.txtNewPass.Location = New System.Drawing.Point(59, 176)
+        Me.txtNewPass.MaxLength = 8
         Me.txtNewPass.Name = "txtNewPass"
+        Me.txtNewPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtNewPass.Size = New System.Drawing.Size(220, 20)
         Me.txtNewPass.TabIndex = 8
         '
@@ -176,6 +180,7 @@ Partial Class frmLogin
         'txtOldPass
         '
         Me.txtOldPass.Location = New System.Drawing.Point(59, 125)
+        Me.txtOldPass.MaxLength = 8
         Me.txtOldPass.Name = "txtOldPass"
         Me.txtOldPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtOldPass.Size = New System.Drawing.Size(220, 20)
@@ -184,6 +189,7 @@ Partial Class frmLogin
         'txtPIDUpdate
         '
         Me.txtPIDUpdate.Location = New System.Drawing.Point(59, 79)
+        Me.txtPIDUpdate.MaxLength = 7
         Me.txtPIDUpdate.Name = "txtPIDUpdate"
         Me.txtPIDUpdate.Size = New System.Drawing.Size(220, 20)
         Me.txtPIDUpdate.TabIndex = 4
