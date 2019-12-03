@@ -26,7 +26,7 @@ Partial Class frmLogin
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtPantherId = New System.Windows.Forms.TextBox()
+        Me.txtUserId = New System.Windows.Forms.TextBox()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.btnLogin = New System.Windows.Forms.Button()
         Me.errP = New System.Windows.Forms.ErrorProvider(Me.components)
@@ -37,10 +37,11 @@ Partial Class frmLogin
         Me.txtNewPass = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtOldPass = New System.Windows.Forms.TextBox()
-        Me.txtPIDUpdate = New System.Windows.Forms.TextBox()
+        Me.txtUserIdUpdate = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.btnExit = New System.Windows.Forms.Button()
+        Me.btnGuestLogin = New System.Windows.Forms.Button()
         CType(Me.errP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -65,7 +66,7 @@ Partial Class frmLogin
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(71, 21)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Panther ID"
+        Me.Label2.Text = "User ID"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label3
@@ -77,13 +78,13 @@ Partial Class frmLogin
         Me.Label3.Text = "Password"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'txtPantherId
+        'txtUserId
         '
-        Me.txtPantherId.Location = New System.Drawing.Point(73, 136)
-        Me.txtPantherId.MaxLength = 7
-        Me.txtPantherId.Name = "txtPantherId"
-        Me.txtPantherId.Size = New System.Drawing.Size(220, 20)
-        Me.txtPantherId.TabIndex = 0
+        Me.txtUserId.Location = New System.Drawing.Point(73, 136)
+        Me.txtUserId.MaxLength = 7
+        Me.txtUserId.Name = "txtUserId"
+        Me.txtUserId.Size = New System.Drawing.Size(220, 20)
+        Me.txtUserId.TabIndex = 0
         '
         'txtPassword
         '
@@ -127,7 +128,7 @@ Partial Class frmLogin
         Me.GroupBox1.Controls.Add(Me.txtNewPass)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.txtOldPass)
-        Me.GroupBox1.Controls.Add(Me.txtPIDUpdate)
+        Me.GroupBox1.Controls.Add(Me.txtUserIdUpdate)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Location = New System.Drawing.Point(382, 79)
@@ -186,13 +187,13 @@ Partial Class frmLogin
         Me.txtOldPass.Size = New System.Drawing.Size(220, 20)
         Me.txtOldPass.TabIndex = 7
         '
-        'txtPIDUpdate
+        'txtUserIdUpdate
         '
-        Me.txtPIDUpdate.Location = New System.Drawing.Point(59, 79)
-        Me.txtPIDUpdate.MaxLength = 7
-        Me.txtPIDUpdate.Name = "txtPIDUpdate"
-        Me.txtPIDUpdate.Size = New System.Drawing.Size(220, 20)
-        Me.txtPIDUpdate.TabIndex = 4
+        Me.txtUserIdUpdate.Location = New System.Drawing.Point(59, 79)
+        Me.txtUserIdUpdate.MaxLength = 7
+        Me.txtUserIdUpdate.Name = "txtUserIdUpdate"
+        Me.txtUserIdUpdate.Size = New System.Drawing.Size(220, 20)
+        Me.txtUserIdUpdate.TabIndex = 4
         '
         'Label4
         '
@@ -209,7 +210,7 @@ Partial Class frmLogin
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(71, 21)
         Me.Label5.TabIndex = 5
-        Me.Label5.Text = "Panther ID"
+        Me.Label5.Text = "User ID"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnExit
@@ -218,32 +219,46 @@ Partial Class frmLogin
         Me.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.LightCoral
         Me.btnExit.FlatAppearance.BorderSize = 2
         Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExit.Location = New System.Drawing.Point(104, 307)
+        Me.btnExit.Location = New System.Drawing.Point(562, 398)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(159, 37)
         Me.btnExit.TabIndex = 7
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = False
         '
+        'btnGuestLogin
+        '
+        Me.btnGuestLogin.BackColor = System.Drawing.Color.White
+        Me.btnGuestLogin.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.btnGuestLogin.FlatAppearance.BorderSize = 2
+        Me.btnGuestLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGuestLogin.Location = New System.Drawing.Point(57, 307)
+        Me.btnGuestLogin.Name = "btnGuestLogin"
+        Me.btnGuestLogin.Size = New System.Drawing.Size(253, 37)
+        Me.btnGuestLogin.TabIndex = 8
+        Me.btnGuestLogin.Text = "Sign In as Guest"
+        Me.btnGuestLogin.UseVisualStyleBackColor = False
+        '
         'frmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(738, 387)
+        Me.ClientSize = New System.Drawing.Size(738, 447)
         Me.ControlBox = False
+        Me.Controls.Add(Me.btnGuestLogin)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblErr)
         Me.Controls.Add(Me.btnLogin)
         Me.Controls.Add(Me.txtPassword)
-        Me.Controls.Add(Me.txtPantherId)
+        Me.Controls.Add(Me.txtUserId)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "frmLogin"
+        Me.Text = "Login"
         CType(Me.errP, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -255,7 +270,7 @@ Partial Class frmLogin
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents txtPantherId As TextBox
+    Friend WithEvents txtUserId As TextBox
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents btnLogin As Button
     Friend WithEvents errP As ErrorProvider
@@ -266,8 +281,9 @@ Partial Class frmLogin
     Friend WithEvents txtNewPass As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents txtOldPass As TextBox
-    Friend WithEvents txtPIDUpdate As TextBox
+    Friend WithEvents txtUserIdUpdate As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents btnExit As Button
+    Friend WithEvents btnGuestLogin As Button
 End Class
