@@ -1,4 +1,5 @@
-﻿Public Class frmAdmin
+﻿Imports System.Data.SqlClient
+Public Class frmAdmin
     Dim objSecurities As CSecurities
     Dim secResult As CSecurity
 #Region "Toolbar Routines"
@@ -137,13 +138,22 @@
         If blnErrors Then
             Exit Sub
         End If
-        ' were good!
+        If objSecurities.CheckPIDExists(txtPID.Text) = 0 Then
+            ' the PID is invalid
+            MessageBox.Show("Unable to find specified Panther ID", "PID Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
+        ' We're good!
         With objSecurities.CurrentObject
             .PID = txtPID.Text
             .SecRole = cboRole.SelectedItem
             .UserID = txtUpdateUserID.Text
             .Password = txtUpdatePassword.Text
         End With
-        MessageBox.Show("Unable to find specified User ID", "User Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        objSecurities.Save()
+        objSecurities.Clear()
+        btnCancel.PerformClick()
+        MessageBox.Show("Security was successfully updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 End Class

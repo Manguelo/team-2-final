@@ -35,7 +35,13 @@ Public Class CSecurities
         params.Add(New SqlParameter("userID", userID))
         Return myDB.GetSingleValueFromSP("sp_getPIDByUserID", params)
     End Function
-
+    Public Function CheckPIDExists(PID As String) As Integer
+        Dim params As New ArrayList
+        Dim pidExists As Integer
+        params.Add(New SqlParameter("pid", txtPID.Text))
+        pidExists = myDB.GetSingleValueFromSP("sp_checkPIDExists", params)
+        Return pidExists
+    End Function
     Public Function GetSecurityForUserID(userID As String) As CSecurity
         Dim params As New ArrayList
         params.Add(New SqlParameter("userID", userID))
