@@ -2,10 +2,24 @@
     Private RoleInfo As frmRole
     Private Login As frmLogin
     Private Admin As frmAdmin
+    Private Events As frmEvents
+    Private RSVP As frmRSVP
 #Region "Toolbar Actions"
     Private Sub tsbRole_Click(sender As Object, e As EventArgs) Handles tsbRole.Click
         Me.Hide()
         RoleInfo.ShowDialog()
+        Me.Show()
+        PerformNextAction()
+    End Sub
+    Private Sub tsbEvent_Click(sender As Object, e As EventArgs) Handles tsbEvent.Click
+        Me.Hide()
+        Events.ShowDialog()
+        Me.Show()
+        PerformNextAction()
+    End Sub
+    Private Sub tsbRSVP_Click(sender As Object, e As EventArgs) Handles tsbRSVP.Click
+        Me.Hide()
+        RSVP.ShowDialog()
         Me.Show()
         PerformNextAction()
     End Sub
@@ -58,6 +72,8 @@
 #End Region
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+        RSVP = New frmRSVP
+        Events = New frmEvents
         Admin = New frmAdmin
         RoleInfo = New frmRole
         Try
