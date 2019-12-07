@@ -35,6 +35,12 @@ Public Class CSecurities
         params.Add(New SqlParameter("userID", userID))
         Return myDB.GetSingleValueFromSP("sp_getPIDByUserID", params)
     End Function
+
+    Public Function GetSecurityForUserID(userID As String) As CSecurity
+        Dim params As New ArrayList
+        params.Add(New SqlParameter("userID", userID))
+        Return FillObject(myDB.GetDataReaderBySP("sp_getSecurityByUserID", params))
+    End Function
     Public Function FillObject(objDR As SqlDataReader) As CSecurity
         If objDR.Read Then
             With _Security

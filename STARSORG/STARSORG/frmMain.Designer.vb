@@ -46,6 +46,7 @@ Partial Class frmMain
         Me.tsbHelp = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
+        Me.btnAdmin = New System.Windows.Forms.Button()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -258,6 +259,15 @@ Partial Class frmMain
         Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
         Me.ToolStripSeparator10.Size = New System.Drawing.Size(10, 50)
         '
+        'btnAdmin
+        '
+        Me.btnAdmin.Location = New System.Drawing.Point(346, 486)
+        Me.btnAdmin.Name = "btnAdmin"
+        Me.btnAdmin.Size = New System.Drawing.Size(181, 40)
+        Me.btnAdmin.TabIndex = 2
+        Me.btnAdmin.Text = "Admin Screen"
+        Me.btnAdmin.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -265,8 +275,9 @@ Partial Class frmMain
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.BackgroundImage = Global.STARSORG.My.Resources.Resources.STARS_National_LOGO1
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(873, 506)
+        Me.ClientSize = New System.Drawing.Size(873, 538)
         Me.ControlBox = False
+        Me.Controls.Add(Me.btnAdmin)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
@@ -302,4 +313,5 @@ Partial Class frmMain
     Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
     Friend WithEvents tsbTutor As ToolStripButton
     Friend WithEvents ToolStripSeparator12 As ToolStripSeparator
+    Friend WithEvents btnAdmin As Button
 End Class

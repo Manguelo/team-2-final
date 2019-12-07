@@ -23,7 +23,6 @@ Partial Class frmLogin
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtUserId = New System.Windows.Forms.TextBox()
@@ -42,27 +41,15 @@ Partial Class frmLogin
         Me.Label5 = New System.Windows.Forms.Label()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnGuestLogin = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.errP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(0, -3)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(739, 63)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Login"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(148, 112)
+        Me.Label2.Location = New System.Drawing.Point(150, 173)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(71, 21)
         Me.Label2.TabIndex = 1
@@ -71,7 +58,7 @@ Partial Class frmLogin
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(157, 166)
+        Me.Label3.Location = New System.Drawing.Point(159, 227)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 13)
         Me.Label3.TabIndex = 2
@@ -80,7 +67,7 @@ Partial Class frmLogin
         '
         'txtUserId
         '
-        Me.txtUserId.Location = New System.Drawing.Point(73, 136)
+        Me.txtUserId.Location = New System.Drawing.Point(75, 197)
         Me.txtUserId.MaxLength = 7
         Me.txtUserId.Name = "txtUserId"
         Me.txtUserId.Size = New System.Drawing.Size(220, 20)
@@ -88,7 +75,7 @@ Partial Class frmLogin
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(73, 182)
+        Me.txtPassword.Location = New System.Drawing.Point(75, 243)
         Me.txtPassword.MaxLength = 8
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
@@ -101,7 +88,7 @@ Partial Class frmLogin
         Me.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue
         Me.btnLogin.FlatAppearance.BorderSize = 2
         Me.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLogin.Location = New System.Drawing.Point(57, 238)
+        Me.btnLogin.Location = New System.Drawing.Point(59, 299)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(253, 37)
         Me.btnLogin.TabIndex = 4
@@ -115,7 +102,7 @@ Partial Class frmLogin
         'lblErr
         '
         Me.lblErr.ForeColor = System.Drawing.Color.Red
-        Me.lblErr.Location = New System.Drawing.Point(42, 205)
+        Me.lblErr.Location = New System.Drawing.Point(44, 266)
         Me.lblErr.Name = "lblErr"
         Me.lblErr.Size = New System.Drawing.Size(283, 26)
         Me.lblErr.TabIndex = 5
@@ -131,9 +118,9 @@ Partial Class frmLogin
         Me.GroupBox1.Controls.Add(Me.txtUserIdUpdate)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Location = New System.Drawing.Point(382, 79)
+        Me.GroupBox1.Location = New System.Drawing.Point(375, 21)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(339, 294)
+        Me.GroupBox1.Size = New System.Drawing.Size(339, 315)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Update Password"
@@ -153,7 +140,7 @@ Partial Class frmLogin
         Me.btnUpdatePass.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue
         Me.btnUpdatePass.FlatAppearance.BorderSize = 2
         Me.btnUpdatePass.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUpdatePass.Location = New System.Drawing.Point(43, 228)
+        Me.btnUpdatePass.Location = New System.Drawing.Point(43, 240)
         Me.btnUpdatePass.Name = "btnUpdatePass"
         Me.btnUpdatePass.Size = New System.Drawing.Size(253, 37)
         Me.btnUpdatePass.TabIndex = 10
@@ -219,7 +206,7 @@ Partial Class frmLogin
         Me.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.LightCoral
         Me.btnExit.FlatAppearance.BorderSize = 2
         Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExit.Location = New System.Drawing.Point(562, 398)
+        Me.btnExit.Location = New System.Drawing.Point(555, 362)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(159, 37)
         Me.btnExit.TabIndex = 7
@@ -232,20 +219,31 @@ Partial Class frmLogin
         Me.btnGuestLogin.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.btnGuestLogin.FlatAppearance.BorderSize = 2
         Me.btnGuestLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuestLogin.Location = New System.Drawing.Point(57, 307)
+        Me.btnGuestLogin.Location = New System.Drawing.Point(59, 362)
         Me.btnGuestLogin.Name = "btnGuestLogin"
         Me.btnGuestLogin.Size = New System.Drawing.Size(253, 37)
         Me.btnGuestLogin.TabIndex = 8
         Me.btnGuestLogin.Text = "Sign In as Guest"
         Me.btnGuestLogin.UseVisualStyleBackColor = False
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.STARSORG.My.Resources.Resources.STARS_National_LOGO1
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(59, 21)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(253, 133)
+        Me.PictureBox1.TabIndex = 9
+        Me.PictureBox1.TabStop = False
+        '
         'frmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(738, 447)
+        Me.ClientSize = New System.Drawing.Size(738, 424)
         Me.ControlBox = False
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnGuestLogin)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.GroupBox1)
@@ -255,19 +253,17 @@ Partial Class frmLogin
         Me.Controls.Add(Me.txtUserId)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
         Me.Name = "frmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Login"
         CType(Me.errP, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents txtUserId As TextBox
@@ -286,4 +282,5 @@ Partial Class frmLogin
     Friend WithEvents Label5 As Label
     Friend WithEvents btnExit As Button
     Friend WithEvents btnGuestLogin As Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

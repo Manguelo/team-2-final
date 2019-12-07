@@ -1,6 +1,7 @@
 ﻿Public Class frmMain
     Private RoleInfo As frmRole
     Private Login As frmLogin
+    Private Admin As frmAdmin
 #Region "Toolbar Actions"
     Private Sub tsbRole_Click(sender As Object, e As EventArgs) Handles tsbRole.Click
         Me.Hide()
@@ -57,6 +58,7 @@
 #End Region
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Admin = New frmAdmin
         RoleInfo = New frmRole
         Try
             myDB.OpenDB()
@@ -89,5 +91,10 @@
         End If
         Me.Cursor = Cursors.Default
         Application.Exit()
+    End Sub
+
+    Private Sub btnAdmin_Click(sender As Object, e As EventArgs) Handles btnAdmin.Click
+        Me.Hide()
+        frmAdmin.Show()
     End Sub
 End Class
