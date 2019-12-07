@@ -1,0 +1,5 @@
+﻿CREATE PROCEDURE [dbo].sp_getPIDByUserID
+	@userId nvarchar(15)
+AS
+	SELECT PID FROM SECURITY WHERE UserID = @userId
+RETURN 0

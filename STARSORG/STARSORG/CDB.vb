@@ -93,6 +93,7 @@ Public Class CDB
                 sqlDR.Close()
                 Return strResult
             Else
+                sqlDR.Close()
                 Return "-1"
             End If
         End If

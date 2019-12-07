@@ -1,0 +1,99 @@
+CREATE PROCEDURE [dbo].sp_SaveRSVP
+	@eventID nvarchar(15),
+	@fName nvarchar(50),
+	@lName nvarchar(50),
+	@eMail nvarchar(50)
+AS
+	INSERT INTO [dbo].EVENT_RSVP(
+	EventID,
+	FName,
+	LName,
+	Email)
+	VALUES (
+	@eventID,
+	@fName,
+	@lName,
+	@eMail)
+
+RETURN @@error
+
+CREATE PROCEDURE [dbo].sp_SaveEvent
+	@eventID nvarchar(15)
+	,@eventDescription nvarchar(500)
+	,@eventTypeID nvarchar(15)
+	,@semesterID nvarchar(4)
+	,@startDate smalldatetime
+	,@endDate smalldatetime
+	,@location nvarchar(50)
+AS
+	Declare @countExists int
+	SELECT @countExists = count(0) FROM EVENT WHERE @eventID = EventID
+	IF (@countExists = 0)
+	BEGIN
+		INSERT INTO [dbo].EVENT
+		(
+		EventID
+		,EventDescription
+		,EventTypeID
+		,SemesterID
+		,StartDate
+		,EndDate
+		,Location
+		)
+		VALUES
+		(
+		@eventID
+		,@eventDescription
+		,@eventTypeID
+		,@semesterID
+		,@startDate
+		,@endDate
+		,@location
+		)
+		
+	END
+	ELSE
+	BEGIN
+		UPDATE [dbo].EVENT
+		SET
+		 [EventDescription] = @eventDescription,
+		 [EventTypeID] = @eventTypeID,
+		 [SemesterID] = @semesterID,
+		 [StartDate] = @startDate,
+		 [EndDate] = @endDate,
+		 [Location] = @location
+		WHERE EventID = @eventID
+	END
+RETURN @@error
+
+CREATE PROCEDURE [dbo].sp_getEventByEventID
+	@eventID nvarchar(15)
+AS
+	SELECT * FROM EVENT, EVENT_TYPE
+	WHERE EventID = @eventID and EVENT.EventTypeID = EVENT_TYPE.EventTypeID
+RETURN 0
+
+CREATE PROCEDURE [dbo].sp_getAllSemID
+AS
+	SELECT SemesterID FROM SEMESTER
+RETURN 0
+
+CREATE PROCEDURE [dbo].sp_getAllEventTypes
+AS
+	SELECT EventTypeID from EVENT_TYPE
+RETURN 0
+
+CREATE PROCEDURE [dbo].sp_getAllEvents
+AS
+	SELECT * FROM EVENT
+RETURN 0
+
+CREATE PROCEDURE [dbo].sp_CheckEventIDExists
+	@eventID nvarchar(15)
+	,@recCount int = 0 OUTPUT
+AS
+	BEGIN
+		SET @recCount = (SELECT count(0) FROM EVENT WHERE EventID = @eventID)
+		SELECT @recCount as RecordCount
+	END
+RETURN 0

@@ -23,5 +23,34 @@ Public Class CSecurities
     Public Function Save() As Integer
         Return _Security.Save()
     End Function
+    Public Function CheckCredentials(PID As String, pass As String) As CSecurity
+        Dim params As New ArrayList
+        params.Add(New SqlParameter("pid", PID))
+        params.Add(New SqlParameter("password", pass))
+        FillObject(myDB.GetDataReaderBySP("sp_CheckCredentials", params))
+        Return _Security
+    End Function
+    Public Function GetPIDByUserId(userID As String) As String
+        Dim params As New ArrayList
+        params.Add(New SqlParameter("userID", userID))
+        Return myDB.GetSingleValueFromSP("sp_getPIDByUserID", params)
+    End Function
 
+    Public Function GetSecurityForUserID(userID As String) As CSecurity
+        Dim params As New ArrayList
+        params.Add(New SqlParameter("userID", userID))
+        Return FillObject(myDB.GetDataReaderBySP("sp_getSecurityByUserID", params))
+    End Function
+    Public Function FillObject(objDR As SqlDataReader) As CSecurity
+        If objDR.Read Then
+            With _Security
+                .PID = objDR("PID")
+                .UserID = objDR.Item("UserID")
+                .Password = objDR.Item("Password")
+                .SecRole = objDR.Item("SecRole")
+            End With
+        End If
+        objDR.Close()
+        Return _Security
+    End Function
 End Class

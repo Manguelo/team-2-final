@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmMain
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmMain
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
@@ -38,21 +38,25 @@ Partial Class frmMain
         Me.tsbCourse = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbSemester = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbTutor = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbLogOut = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbHelp = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
+        Me.btnAdmin = New System.Windows.Forms.Button()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(182, 421)
+        Me.Label1.Location = New System.Drawing.Point(185, 418)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(503, 56)
         Me.Label1.TabIndex = 0
@@ -62,7 +66,7 @@ Partial Class frmMain
         'ToolStrip1
         '
         Me.ToolStrip1.AutoSize = False
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator6, Me.tsbHome, Me.ToolStripSeparator7, Me.tsbMember, Me.ToolStripSeparator8, Me.tsbRole, Me.ToolStripSeparator5, Me.tsbEvent, Me.ToolStripSeparator3, Me.tsbRSVP, Me.ToolStripSeparator4, Me.tsbCourse, Me.ToolStripSeparator2, Me.tsbSemester, Me.tsbTutor, Me.ToolStripSeparator9, Me.tsbLogOut, Me.ToolStripSeparator1, Me.tsbHelp, Me.ToolStripSeparator11, Me.ToolStripSeparator10})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator6, Me.tsbHome, Me.ToolStripSeparator7, Me.tsbMember, Me.ToolStripSeparator8, Me.tsbRole, Me.ToolStripSeparator5, Me.tsbEvent, Me.ToolStripSeparator3, Me.tsbRSVP, Me.ToolStripSeparator4, Me.tsbCourse, Me.ToolStripSeparator2, Me.tsbSemester, Me.ToolStripSeparator11, Me.tsbTutor, Me.ToolStripSeparator9, Me.tsbLogOut, Me.ToolStripSeparator1, Me.tsbHelp, Me.ToolStripSeparator12, Me.ToolStripSeparator10})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(873, 50)
@@ -188,6 +192,12 @@ Partial Class frmMain
         Me.tsbSemester.Size = New System.Drawing.Size(48, 48)
         Me.tsbSemester.Text = "SEMESTER"
         '
+        'ToolStripSeparator11
+        '
+        Me.ToolStripSeparator11.AutoSize = False
+        Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
+        Me.ToolStripSeparator11.Size = New System.Drawing.Size(10, 50)
+        '
         'tsbTutor
         '
         Me.tsbTutor.AutoSize = False
@@ -237,11 +247,11 @@ Partial Class frmMain
         Me.tsbHelp.Size = New System.Drawing.Size(48, 48)
         Me.tsbHelp.Text = "HELP"
         '
-        'ToolStripSeparator11
+        'ToolStripSeparator12
         '
-        Me.ToolStripSeparator11.AutoSize = False
-        Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
-        Me.ToolStripSeparator11.Size = New System.Drawing.Size(10, 50)
+        Me.ToolStripSeparator12.AutoSize = False
+        Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
+        Me.ToolStripSeparator12.Size = New System.Drawing.Size(10, 50)
         '
         'ToolStripSeparator10
         '
@@ -250,6 +260,17 @@ Partial Class frmMain
         Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
         Me.ToolStripSeparator10.Size = New System.Drawing.Size(10, 50)
         '
+        'btnAdmin
+        '
+        Me.btnAdmin.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnAdmin.Location = New System.Drawing.Point(346, 486)
+        Me.btnAdmin.Name = "btnAdmin"
+        Me.btnAdmin.Size = New System.Drawing.Size(181, 40)
+        Me.btnAdmin.TabIndex = 2
+        Me.btnAdmin.Text = "Admin Console"
+        Me.btnAdmin.UseVisualStyleBackColor = True
+        Me.btnAdmin.Visible = False
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -257,12 +278,14 @@ Partial Class frmMain
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.BackgroundImage = Global.STARSORG.My.Resources.Resources.STARS_National_LOGO1
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(873, 506)
+        Me.ClientSize = New System.Drawing.Size(873, 538)
         Me.ControlBox = False
+        Me.Controls.Add(Me.btnAdmin)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
         Me.Name = "frmMain"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FIU STARS"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
@@ -281,7 +304,6 @@ Partial Class frmMain
     Friend WithEvents tsbCourse As ToolStripButton
     Friend WithEvents tsbSemester As ToolStripButton
     Friend WithEvents tsbHelp As ToolStripButton
-    Friend WithEvents tsbTutor As ToolStripButton
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
     Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
@@ -293,4 +315,7 @@ Partial Class frmMain
     Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
     Friend WithEvents ToolStripSeparator11 As ToolStripSeparator
     Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
+    Friend WithEvents tsbTutor As ToolStripButton
+    Friend WithEvents ToolStripSeparator12 As ToolStripSeparator
+    Friend WithEvents btnAdmin As Button
 End Class

@@ -15,6 +15,15 @@
     Public Const ACTION_HELP As Integer = 9
     Public Const ACTION_LOGOUT As Integer = 10
 #End Region
+#Region "Security Roles"
+    Public Const ADMIN As String = "ADMIN"
+    Public Const OFFICER As String = "OFFICER"
+    Public Const MEMBER As String = "MEMBER"
+    Public Const GUEST As String = "GUEST"
+
+
+#End Region
     Public intNextAction As Integer
     Public myDB As New CDB
+    Public currentSecurity As CSecurity
 End Module

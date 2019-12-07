@@ -73,11 +73,35 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CAudit.vb" />
+    <Compile Include="CAudits.vb" />
     <Compile Include="CDB.vb" />
+    <Compile Include="CEvent.vb" />
+    <Compile Include="CEvents.vb" />
     <Compile Include="CRole.vb" />
     <Compile Include="CRoles.vb" />
+    <Compile Include="CRSVP.vb" />
+    <Compile Include="CRSVPs.vb" />
     <Compile Include="CSecurities.vb" />
     <Compile Include="CSecurity.vb" />
+    <Compile Include="frmAdmin.Designer.vb">
+      <DependentUpon>frmAdmin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEvents.designer.vb">
+      <DependentUpon>frmEvents.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEvents.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -85,10 +109,22 @@
       <DependentUpon>frmMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmReport.designer.vb">
+      <DependentUpon>frmReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmRole.Designer.vb">
       <DependentUpon>frmRole.vb</DependentUpon>
     </Compile>
     <Compile Include="frmRole.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRSVP.designer.vb">
+      <DependentUpon>frmRSVP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRSVP.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="modDB.vb" />
@@ -110,13 +146,33 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="STARSDBDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>STARSDBDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAdmin.resx">
+      <DependentUpon>frmAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEvents.resx">
+      <DependentUpon>frmEvents.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReport.resx">
+      <DependentUpon>frmReport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRole.resx">
       <DependentUpon>frmRole.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRSVP.resx">
+      <DependentUpon>frmRSVP.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -137,6 +193,17 @@
     </None>
     <None Include="App.config" />
     <None Include="Resources\STARS National LOGO1.png" />
+    <None Include="STARSDBDataSet.xsc">
+      <DependentUpon>STARSDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="STARSDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>STARSDBDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="STARSDBDataSet.xss">
+      <DependentUpon>STARSDBDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\home.png" />
@@ -167,6 +234,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tutors.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transparentBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transparentBG1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transparentBG2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
