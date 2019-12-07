@@ -95,6 +95,21 @@
 
     Private Sub btnAdmin_Click(sender As Object, e As EventArgs) Handles btnAdmin.Click
         Me.Hide()
-        frmAdmin.Show()
+        frmAdmin.ShowDialog()
+        Me.Show()
+        PerformNextAction()
+    End Sub
+
+    Private Sub frmMain_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        ' check if the Admin Console button should be shown 
+        If currentSecurity Is Nothing Then
+        Else
+            Select Case currentSecurity.SecRole
+                Case modGlobal.ADMIN
+                    btnAdmin.Visible = True
+                Case Else
+                    btnAdmin.Visible = False
+            End Select
+        End If
     End Sub
 End Class

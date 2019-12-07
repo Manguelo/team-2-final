@@ -52,6 +52,7 @@ Partial Class frmMain
         '
         'Label1
         '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -261,12 +262,14 @@ Partial Class frmMain
         '
         'btnAdmin
         '
+        Me.btnAdmin.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.btnAdmin.Location = New System.Drawing.Point(346, 486)
         Me.btnAdmin.Name = "btnAdmin"
         Me.btnAdmin.Size = New System.Drawing.Size(181, 40)
         Me.btnAdmin.TabIndex = 2
-        Me.btnAdmin.Text = "Admin Screen"
+        Me.btnAdmin.Text = "Admin Console"
         Me.btnAdmin.UseVisualStyleBackColor = True
+        Me.btnAdmin.Visible = False
         '
         'frmMain
         '
@@ -282,6 +285,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
         Me.Name = "frmMain"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FIU STARS"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()

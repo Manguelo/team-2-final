@@ -48,13 +48,16 @@ Partial Class frmAdmin
         Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.chkNewMember = New System.Windows.Forms.CheckBox()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtUserID = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.grpUpdate = New System.Windows.Forms.GroupBox()
+        Me.txtPID = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.cboRole = New System.Windows.Forms.ComboBox()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnCancel = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtUpdatePassword = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -63,7 +66,7 @@ Partial Class frmAdmin
         Me.errP = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
+        Me.grpUpdate.SuspendLayout()
         CType(Me.errP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -278,6 +281,7 @@ Partial Class frmAdmin
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.chkNewMember)
         Me.GroupBox1.Controls.Add(Me.btnSearch)
         Me.GroupBox1.Controls.Add(Me.txtUserID)
         Me.GroupBox1.Controls.Add(Me.Label2)
@@ -288,9 +292,19 @@ Partial Class frmAdmin
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Member Search"
         '
+        'chkNewMember
+        '
+        Me.chkNewMember.AutoSize = True
+        Me.chkNewMember.Location = New System.Drawing.Point(26, 192)
+        Me.chkNewMember.Name = "chkNewMember"
+        Me.chkNewMember.Size = New System.Drawing.Size(162, 17)
+        Me.chkNewMember.TabIndex = 3
+        Me.chkNewMember.Text = "Add security for new member"
+        Me.chkNewMember.UseVisualStyleBackColor = True
+        '
         'btnSearch
         '
-        Me.btnSearch.Location = New System.Drawing.Point(23, 142)
+        Me.btnSearch.Location = New System.Drawing.Point(23, 132)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(211, 30)
         Me.btnSearch.TabIndex = 2
@@ -313,54 +327,74 @@ Partial Class frmAdmin
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Find member by User ID"
         '
-        'GroupBox2
+        'grpUpdate
         '
-        Me.GroupBox2.Controls.Add(Me.ComboBox1)
-        Me.GroupBox2.Controls.Add(Me.Button3)
-        Me.GroupBox2.Controls.Add(Me.Button2)
-        Me.GroupBox2.Controls.Add(Me.Label5)
-        Me.GroupBox2.Controls.Add(Me.txtUpdatePassword)
-        Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.Controls.Add(Me.txtUpdateUserID)
-        Me.GroupBox2.Controls.Add(Me.Label3)
-        Me.GroupBox2.Location = New System.Drawing.Point(339, 148)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(256, 236)
-        Me.GroupBox2.TabIndex = 6
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Update Member"
+        Me.grpUpdate.Controls.Add(Me.txtPID)
+        Me.grpUpdate.Controls.Add(Me.Label6)
+        Me.grpUpdate.Controls.Add(Me.cboRole)
+        Me.grpUpdate.Controls.Add(Me.btnSave)
+        Me.grpUpdate.Controls.Add(Me.btnCancel)
+        Me.grpUpdate.Controls.Add(Me.Label5)
+        Me.grpUpdate.Controls.Add(Me.txtUpdatePassword)
+        Me.grpUpdate.Controls.Add(Me.Label4)
+        Me.grpUpdate.Controls.Add(Me.txtUpdateUserID)
+        Me.grpUpdate.Controls.Add(Me.Label3)
+        Me.grpUpdate.Enabled = False
+        Me.grpUpdate.Location = New System.Drawing.Point(339, 148)
+        Me.grpUpdate.Name = "grpUpdate"
+        Me.grpUpdate.Size = New System.Drawing.Size(256, 293)
+        Me.grpUpdate.TabIndex = 6
+        Me.grpUpdate.TabStop = False
+        Me.grpUpdate.Text = "Update Member"
         '
-        'ComboBox1
+        'txtPID
         '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(18, 142)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(211, 21)
-        Me.ComboBox1.TabIndex = 9
+        Me.txtPID.Enabled = False
+        Me.txtPID.Location = New System.Drawing.Point(21, 38)
+        Me.txtPID.Name = "txtPID"
+        Me.txtPID.Size = New System.Drawing.Size(211, 20)
+        Me.txtPID.TabIndex = 11
         '
-        'Button3
+        'Label6
         '
-        Me.Button3.Location = New System.Drawing.Point(18, 191)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(95, 30)
-        Me.Button3.TabIndex = 8
-        Me.Button3.Text = "Save"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(99, 22)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(58, 13)
+        Me.Label6.TabIndex = 10
+        Me.Label6.Text = "Panther ID"
         '
-        'Button2
+        'cboRole
         '
-        Me.Button2.Location = New System.Drawing.Point(134, 191)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(95, 30)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "Cancel"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.cboRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboRole.FormattingEnabled = True
+        Me.cboRole.Location = New System.Drawing.Point(21, 192)
+        Me.cboRole.Name = "cboRole"
+        Me.cboRole.Size = New System.Drawing.Size(211, 21)
+        Me.cboRole.TabIndex = 9
+        '
+        'btnSave
+        '
+        Me.btnSave.Location = New System.Drawing.Point(21, 241)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(95, 30)
+        Me.btnSave.TabIndex = 8
+        Me.btnSave.Text = "Save"
+        Me.btnSave.UseVisualStyleBackColor = True
+        '
+        'btnCancel
+        '
+        Me.btnCancel.Location = New System.Drawing.Point(137, 241)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(95, 30)
+        Me.btnCancel.TabIndex = 3
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = True
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(113, 126)
+        Me.Label5.Location = New System.Drawing.Point(116, 176)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(29, 13)
         Me.Label5.TabIndex = 6
@@ -368,15 +402,16 @@ Partial Class frmAdmin
         '
         'txtUpdatePassword
         '
-        Me.txtUpdatePassword.Location = New System.Drawing.Point(18, 92)
+        Me.txtUpdatePassword.Location = New System.Drawing.Point(21, 142)
         Me.txtUpdatePassword.Name = "txtUpdatePassword"
+        Me.txtUpdatePassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtUpdatePassword.Size = New System.Drawing.Size(211, 20)
         Me.txtUpdatePassword.TabIndex = 5
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(102, 76)
+        Me.Label4.Location = New System.Drawing.Point(105, 126)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(53, 13)
         Me.Label4.TabIndex = 4
@@ -384,7 +419,7 @@ Partial Class frmAdmin
         '
         'txtUpdateUserID
         '
-        Me.txtUpdateUserID.Location = New System.Drawing.Point(18, 36)
+        Me.txtUpdateUserID.Location = New System.Drawing.Point(21, 86)
         Me.txtUpdateUserID.Name = "txtUpdateUserID"
         Me.txtUpdateUserID.Size = New System.Drawing.Size(211, 20)
         Me.txtUpdateUserID.TabIndex = 3
@@ -392,7 +427,7 @@ Partial Class frmAdmin
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(95, 20)
+        Me.Label3.Location = New System.Drawing.Point(98, 70)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(60, 13)
         Me.Label3.TabIndex = 2
@@ -407,19 +442,21 @@ Partial Class frmAdmin
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ClientSize = New System.Drawing.Size(631, 396)
-        Me.Controls.Add(Me.GroupBox2)
+        Me.ClientSize = New System.Drawing.Size(631, 453)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.grpUpdate)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Name = "frmAdmin"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "frmAdmin"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
+        Me.grpUpdate.ResumeLayout(False)
+        Me.grpUpdate.PerformLayout()
         CType(Me.errP, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -450,17 +487,20 @@ Partial Class frmAdmin
     Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents grpUpdate As GroupBox
     Friend WithEvents btnSearch As Button
     Friend WithEvents txtUserID As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnSave As Button
+    Friend WithEvents btnCancel As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents txtUpdatePassword As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents txtUpdateUserID As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cboRole As ComboBox
     Friend WithEvents errP As ErrorProvider
+    Friend WithEvents txtPID As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents chkNewMember As CheckBox
 End Class
