@@ -1,5 +1,6 @@
 ﻿Public Class frmMain
     Private RoleInfo As frmRole
+    Private MemberInfo As frmMember
 #Region "Toolbar Actions"
     Private Sub tsbRole_Click(sender As Object, e As EventArgs) Handles tsbRole.Click
         Me.Hide()
@@ -9,6 +10,12 @@
     End Sub
     Private Sub tsbLogOut_Click(sender As Object, e As EventArgs) Handles tsbLogOut.Click
         intNextAction = ACTION_LOGOUT
+        PerformNextAction()
+    End Sub
+    Private Sub tsbMember_Click(sender As Object, e As EventArgs) Handles tsbMember.Click
+        Me.Hide()
+        MemberInfo.ShowDialog()
+        Me.Show()
         PerformNextAction()
     End Sub
 #End Region
@@ -57,6 +64,7 @@
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
         RoleInfo = New frmRole
+        MemberInfo = New frmMember
         Try
             myDB.OpenDB()
         Catch ex As Exception
@@ -83,4 +91,6 @@
         Me.Cursor = Cursors.Default
         Application.Exit()
     End Sub
+
+
 End Class
