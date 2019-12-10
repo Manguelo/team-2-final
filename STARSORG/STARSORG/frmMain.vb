@@ -10,6 +10,8 @@
     ' Julian Crespo
     Private Semester As frmSemester
     Private Course As frmCourse
+    ' Elvin Blen
+    Private Member As frmMember
 #Region "Toolbar Actions"
     Private Sub tsbRole_Click(sender As Object, e As EventArgs) Handles tsbRole.Click
         Me.Hide()
@@ -48,6 +50,19 @@
             Case OFFICER_ROLE
                 Me.Hide()
                 Course.ShowDialog()
+                Me.Show()
+                PerformNextAction()
+            Case Else
+                MessageBox.Show("You do not have the required permissions to view Courses. Please contact your administrator", "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+        End Select
+    End Sub
+    Private Sub tsbMember_Click(sender As Object, e As EventArgs) Handles tsbMember.Click
+        Select Case currentSecurity.SecRole
+            Case ADMIN_ROLE
+            Case OFFICER_ROLE
+            Case GUEST_ROLE
+                Me.Hide()
+                Member.ShowDialog()
                 Me.Show()
                 PerformNextAction()
             Case Else
@@ -115,6 +130,7 @@
 #End Region
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Member = New frmMember
         Semester = New frmSemester
         Course = New frmCourse
         RSVP = New frmRSVP

@@ -48,6 +48,18 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -80,6 +92,8 @@
     <Compile Include="CDB.vb" />
     <Compile Include="CEvent.vb" />
     <Compile Include="CEvents.vb" />
+    <Compile Include="CMember.vb" />
+    <Compile Include="CMembers.vb" />
     <Compile Include="CRole.vb" />
     <Compile Include="CRoles.vb" />
     <Compile Include="CRSVP.vb" />
@@ -123,6 +137,24 @@
     </Compile>
     <Compile Include="frmMain.Designer.vb">
       <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMember.Designer.vb">
+      <DependentUpon>frmMember.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMember.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMemberReportFinal.Designer.vb">
+      <DependentUpon>frmMemberReportFinal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMemberReportFinal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMemReport.Designer.vb">
+      <DependentUpon>frmMemReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMemReport.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmReport.designer.vb">
@@ -179,10 +211,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>STARSDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="STARSDBDataSetMembers.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>STARSDBDataSetMembers.xsd</DependentUpon>
+    </Compile>
     <Compile Include="STARSDBDataSet_Course_Table.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>STARSDBDataSet_Course_Table.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="STARSDBMemberAndSecRole.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>STARSDBMemberAndSecRole.xsd</DependentUpon>
     </Compile>
     <Compile Include="STARSDB_Course.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -213,6 +255,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMember.resx">
+      <DependentUpon>frmMember.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMemberReportFinal.resx">
+      <DependentUpon>frmMemberReportFinal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMemReport.resx">
+      <DependentUpon>frmMemReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReport.resx">
       <DependentUpon>frmReport.vb</DependentUpon>
@@ -247,6 +298,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="Resources\STARS National LOGO1.png" />
     <None Include="STARSDBDataSet.xsc">
       <DependentUpon>STARSDBDataSet.xsd</DependentUpon>
@@ -259,6 +311,17 @@
     <None Include="STARSDBDataSet.xss">
       <DependentUpon>STARSDBDataSet.xsd</DependentUpon>
     </None>
+    <None Include="STARSDBDataSetMembers.xsc">
+      <DependentUpon>STARSDBDataSetMembers.xsd</DependentUpon>
+    </None>
+    <None Include="STARSDBDataSetMembers.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>STARSDBDataSetMembers.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="STARSDBDataSetMembers.xss">
+      <DependentUpon>STARSDBDataSetMembers.xsd</DependentUpon>
+    </None>
     <None Include="STARSDBDataSet_Course_Table.xsc">
       <DependentUpon>STARSDBDataSet_Course_Table.xsd</DependentUpon>
     </None>
@@ -268,6 +331,17 @@
     </None>
     <None Include="STARSDBDataSet_Course_Table.xss">
       <DependentUpon>STARSDBDataSet_Course_Table.xsd</DependentUpon>
+    </None>
+    <None Include="STARSDBMemberAndSecRole.xsc">
+      <DependentUpon>STARSDBMemberAndSecRole.xsd</DependentUpon>
+    </None>
+    <None Include="STARSDBMemberAndSecRole.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>STARSDBMemberAndSecRole.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="STARSDBMemberAndSecRole.xss">
+      <DependentUpon>STARSDBMemberAndSecRole.xsd</DependentUpon>
     </None>
     <None Include="STARSDB_Course.xsc">
       <DependentUpon>STARSDB_Course.xsd</DependentUpon>

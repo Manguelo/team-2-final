@@ -1,0 +1,5 @@
+CREATE PROCEDURE [dbo].sp_getMemberLName
+AS
+	SELECT * FROM MEMBER
+	WHERE LNAME LIKE '%';
+Return 0
