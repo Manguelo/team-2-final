@@ -560,6 +560,7 @@ Partial Class frmMember
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmMember"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Member"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()

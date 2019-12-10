@@ -44,7 +44,7 @@ Public Class CSecurity
             Return _mstrSecRole
         End Get
         Set(strVal As String)
-            _mstrSecRole = strVal
+            _mstrSecRole = strVal.Trim.ToUpper()
         End Set
     End Property
 
