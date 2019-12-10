@@ -75,6 +75,8 @@
   <ItemGroup>
     <Compile Include="CAudit.vb" />
     <Compile Include="CAudits.vb" />
+    <Compile Include="CCourse.vb" />
+    <Compile Include="CCourses.vb" />
     <Compile Include="CDB.vb" />
     <Compile Include="CEvent.vb" />
     <Compile Include="CEvents.vb" />
@@ -84,10 +86,24 @@
     <Compile Include="CRSVPs.vb" />
     <Compile Include="CSecurities.vb" />
     <Compile Include="CSecurity.vb" />
+    <Compile Include="CSemester.vb" />
+    <Compile Include="CSemesters.vb" />
     <Compile Include="frmAdmin.Designer.vb">
       <DependentUpon>frmAdmin.vb</DependentUpon>
     </Compile>
     <Compile Include="frmAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCourse.designer.vb">
+      <DependentUpon>frmCourse.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCourse.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCourseReport.designer.vb">
+      <DependentUpon>frmCourseReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCourseReport.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmEvents.designer.vb">
@@ -127,6 +143,18 @@
     <Compile Include="frmRSVP.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmSemester.designer.vb">
+      <DependentUpon>frmSemester.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSemester.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSemesterReport.designer.vb">
+      <DependentUpon>frmSemesterReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSemesterReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="modDB.vb" />
     <Compile Include="modErrHandler.vb" />
     <Compile Include="modGlobal.vb" />
@@ -151,10 +179,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>STARSDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="STARSDBDataSet_Course_Table.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>STARSDBDataSet_Course_Table.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="STARSDB_Course.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>STARSDB_Course.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="STARS_Semster_Data.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>STARS_Semster_Data.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmAdmin.resx">
       <DependentUpon>frmAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCourse.resx">
+      <DependentUpon>frmCourse.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCourseReport.resx">
+      <DependentUpon>frmCourseReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEvents.resx">
       <DependentUpon>frmEvents.vb</DependentUpon>
@@ -173,6 +222,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRSVP.resx">
       <DependentUpon>frmRSVP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSemester.resx">
+      <DependentUpon>frmSemester.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSemesterReport.resx">
+      <DependentUpon>frmSemesterReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -203,6 +258,36 @@
     </None>
     <None Include="STARSDBDataSet.xss">
       <DependentUpon>STARSDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="STARSDBDataSet_Course_Table.xsc">
+      <DependentUpon>STARSDBDataSet_Course_Table.xsd</DependentUpon>
+    </None>
+    <None Include="STARSDBDataSet_Course_Table.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>STARSDBDataSet_Course_Table.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="STARSDBDataSet_Course_Table.xss">
+      <DependentUpon>STARSDBDataSet_Course_Table.xsd</DependentUpon>
+    </None>
+    <None Include="STARSDB_Course.xsc">
+      <DependentUpon>STARSDB_Course.xsd</DependentUpon>
+    </None>
+    <None Include="STARSDB_Course.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>STARSDB_Course.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="STARSDB_Course.xss">
+      <DependentUpon>STARSDB_Course.xsd</DependentUpon>
+    </None>
+    <None Include="STARS_Semster_Data.xsc">
+      <DependentUpon>STARS_Semster_Data.xsd</DependentUpon>
+    </None>
+    <None Include="STARS_Semster_Data.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>STARS_Semster_Data.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="STARS_Semster_Data.xss">
+      <DependentUpon>STARS_Semster_Data.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -1,9 +1,15 @@
 ﻿Public Class frmMain
+    ' Professor 
     Private RoleInfo As frmRole
+    'Matthew Anguelo
     Private Login As frmLogin
     Private Admin As frmAdmin
+    ' Matthew Movilla
     Private Events As frmEvents
     Private RSVP As frmRSVP
+    ' Julian Crespo
+    Private Semester As frmSemester
+    Private Course As frmCourse
 #Region "Toolbar Actions"
     Private Sub tsbRole_Click(sender As Object, e As EventArgs) Handles tsbRole.Click
         Me.Hide()
@@ -22,6 +28,31 @@
         RSVP.ShowDialog()
         Me.Show()
         PerformNextAction()
+    End Sub
+    Private Sub tsbSemester_Click(sender As Object, e As EventArgs) Handles tsbSemester.Click
+        Select Case currentSecurity.SecRole
+            Case ADMIN_ROLE
+            Case OFFICER_ROLE
+                Me.Hide()
+                Semester.ShowDialog()
+                Me.Show()
+                PerformNextAction()
+            Case Else
+                MessageBox.Show("You do not have the required permissions to view Semesters. Please contact your administrator", "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+        End Select
+
+    End Sub
+    Private Sub tsbCourse_Click(sender As Object, e As EventArgs) Handles tsbCourse.Click
+        Select Case currentSecurity.SecRole
+            Case ADMIN_ROLE
+            Case OFFICER_ROLE
+                Me.Hide()
+                Course.ShowDialog()
+                Me.Show()
+                PerformNextAction()
+            Case Else
+                MessageBox.Show("You do not have the required permissions to view Courses. Please contact your administrator", "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+        End Select
     End Sub
     Private Sub tsbLogOut_Click(sender As Object, e As EventArgs) Handles tsbLogOut.Click
         intNextAction = ACTION_LOGOUT
@@ -44,7 +75,13 @@
         'then simulate the click on the toolbar button here
         Select Case intNextAction
             Case ACTION_COURSE
-                tsbCourse.PerformClick()
+                Select Case currentSecurity.SecRole
+                    Case ADMIN_ROLE
+                    Case OFFICER_ROLE
+                        tsbCourse.PerformClick()
+                    Case Else
+                        MessageBox.Show("You do not have the required permissions to view Courses. Please contact your administrator", "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                End Select
             Case ACTION_EVENT
                 tsbEvent.PerformClick()
             Case ACTION_HELP
@@ -62,7 +99,13 @@
             Case ACTION_RSVP
                 tsbRSVP.PerformClick()
             Case ACTION_SEMESTER
-                tsbSemester.PerformClick()
+                Select Case currentSecurity.SecRole
+                    Case ADMIN_ROLE
+                    Case OFFICER_ROLE
+                        tsbSemester.PerformClick()
+                    Case Else
+                        MessageBox.Show("You do not have the required permissions to view Semesters. Please contact your administrator", "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                End Select
             Case ACTION_TUTOR
                 tsbTutor.PerformClick()
             Case Else
@@ -72,6 +115,8 @@
 #End Region
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Semester = New frmSemester
+        Course = New frmCourse
         RSVP = New frmRSVP
         Events = New frmEvents
         Admin = New frmAdmin
@@ -121,7 +166,7 @@
         If currentSecurity Is Nothing Then
         Else
             Select Case currentSecurity.SecRole
-                Case modGlobal.ADMIN
+                Case ADMIN_ROLE
                     btnAdmin.Visible = True
                 Case Else
                     btnAdmin.Visible = False

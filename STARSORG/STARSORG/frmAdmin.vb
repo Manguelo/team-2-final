@@ -72,10 +72,10 @@ Public Class frmAdmin
         secResult = New CSecurity
 
         ' Add roles
-        cboRole.Items.Add(ADMIN)
-        cboRole.Items.Add(OFFICER)
-        cboRole.Items.Add(MEMBER)
-        cboRole.Items.Add(GUEST)
+        cboRole.Items.Add(ADMIN_ROLE)
+        cboRole.Items.Add(OFFICER_ROLE)
+        cboRole.Items.Add(MEMBER_ROLE)
+        cboRole.Items.Add(GUEST_ROLE)
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
@@ -94,6 +94,11 @@ Public Class frmAdmin
             Exit Sub
         End If
         ' we got some good stuff
+        For Each item In cboRole.Items
+            If item = secResult.SecRole Then
+                cboRole.SelectedItem = item
+            End If
+        Next
         txtUpdateUserID.Text = secResult.UserID
         txtUpdatePassword.Text = secResult.Password
         txtPID.Text = secResult.PID

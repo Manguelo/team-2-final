@@ -38,7 +38,7 @@ Public Class CSecurities
     Public Function CheckPIDExists(PID As String) As Integer
         Dim params As New ArrayList
         Dim pidExists As Integer
-        params.Add(New SqlParameter("pid", txtPID.Text))
+        params.Add(New SqlParameter("pid", PID))
         pidExists = myDB.GetSingleValueFromSP("sp_checkPIDExists", params)
         Return pidExists
     End Function

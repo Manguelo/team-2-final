@@ -134,6 +134,12 @@ Public Class frmEvents
     End Sub
 #End Region
     Private Sub frmEvents_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        Select Case currentSecurity.SecRole
+            Case MEMBER_ROLE
+            Case GUEST_ROLE
+                btnCreate.Enabled = False
+                btnModify.Enabled = False
+        End Select
         ClearScreenControls(Me)
         LoadEvents()
         LoadEventTypes()

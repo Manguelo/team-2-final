@@ -16,10 +16,10 @@
     Public Const ACTION_LOGOUT As Integer = 10
 #End Region
 #Region "Security Roles"
-    Public Const ADMIN As String = "ADMIN"
-    Public Const OFFICER As String = "OFFICER"
-    Public Const MEMBER As String = "MEMBER"
-    Public Const GUEST As String = "GUEST"
+    Public Const ADMIN_ROLE As String = "ADMIN"
+    Public Const OFFICER_ROLE As String = "OFFICER"
+    Public Const MEMBER_ROLE As String = "MEMBER"
+    Public Const GUEST_ROLE As String = "GUEST"
 
 
 #End Region
