@@ -14,10 +14,16 @@
     Private Member As frmMember
 #Region "Toolbar Actions"
     Private Sub tsbRole_Click(sender As Object, e As EventArgs) Handles tsbRole.Click
-        Me.Hide()
-        RoleInfo.ShowDialog()
-        Me.Show()
-        PerformNextAction()
+        Select Case currentSecurity.SecRole
+            Case ADMIN_ROLE
+            Case OFFICER_ROLE
+                Me.Hide()
+                RoleInfo.ShowDialog()
+                Me.Show()
+                PerformNextAction()
+            Case Else
+                MessageBox.Show("You do not have the required permissions to view Semesters. Please contact your administrator", "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+        End Select
     End Sub
     Private Sub tsbEvent_Click(sender As Object, e As EventArgs) Handles tsbEvent.Click
         Me.Hide()
@@ -42,7 +48,6 @@
             Case Else
                 MessageBox.Show("You do not have the required permissions to view Semesters. Please contact your administrator", "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Hand)
         End Select
-
     End Sub
     Private Sub tsbCourse_Click(sender As Object, e As EventArgs) Handles tsbCourse.Click
         Select Case currentSecurity.SecRole
@@ -60,7 +65,6 @@
         Select Case currentSecurity.SecRole
             Case ADMIN_ROLE
             Case OFFICER_ROLE
-            Case GUEST_ROLE
                 Me.Hide()
                 Member.ShowDialog()
                 Me.Show()
@@ -106,11 +110,23 @@
             Case ACTION_LOGOUT
                 EndProgram()
             Case ACTION_MEMBER
-                tsbMember.PerformClick()
+                Select Case currentSecurity.SecRole
+                    Case ADMIN_ROLE
+                    Case OFFICER_ROLE
+                        tsbMember.PerformClick()
+                    Case Else
+                        MessageBox.Show("You do not have the required permissions to view Members. Please contact your administrator", "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                End Select
             Case ACTION_NONE
                 'nothing to do here
             Case ACTION_ROLE
-                tsbRole.PerformClick()
+                Select Case currentSecurity.SecRole
+                    Case ADMIN_ROLE
+                    Case OFFICER_ROLE
+                        tsbRole.PerformClick()
+                    Case Else
+                        MessageBox.Show("You do not have the required permissions to view Roles. Please contact your administrator", "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                End Select
             Case ACTION_RSVP
                 tsbRSVP.PerformClick()
             Case ACTION_SEMESTER
